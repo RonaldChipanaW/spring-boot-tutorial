@@ -1,5 +1,6 @@
 package com.codesign.tutorial;
 
+import com.codesign.tutorial.models.Libro;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -25,12 +26,23 @@ public class Rutas {
         return "Leyendo el libro2 con id:" + id + ", params: " + params + ", de editorial: " + editorial;
     }
 
+/*
     @PostMapping("/libro")
     String guardarLibro(@RequestBody Map<String, Object> libro){
         logger.debug("Starter_guardarLibro");
         libro.keySet().forEach( llave -> {
             logger.debug("llave {} valor {}", llave, libro.get(llave));
         });
+
+        return "libros gusardados";
+    }
+*/
+    @PostMapping("/libro")
+    String guardarLibro(@RequestBody Libro libro){
+        logger.debug("Starter_guardarLibro");
+
+            logger.debug("libro {} editorial {}", libro.nombre, libro.editorial);
+
 
         return "libros gusardados";
     }
