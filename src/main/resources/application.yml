@@ -1,0 +1,4 @@
+spring.application.name: spring-boot-tutorial
+logging:
+  level:
+    com.codesign.proy1: DEBUG
