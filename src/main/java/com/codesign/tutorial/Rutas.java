@@ -3,6 +3,7 @@ package com.codesign.tutorial;
 import com.codesign.tutorial.models.Libro;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -43,7 +44,12 @@ public class Rutas {
 
             logger.debug("libro {} editorial {}", libro.nombre, libro.editorial);
 
-
         return "libros gusardados";
+    }
+
+    @GetMapping("/saludar")
+    @ResponseStatus(value = HttpStatus.MOVED_PERMANENTLY, reason = "Fue movida a la version 2 de la API")
+    String miSegundaRutaconStatus(){
+        return "Aprendiendo status http en Spring Boot";
     }
 }

@@ -2,3 +2,5 @@ spring.application.name: spring-boot-tutorial
 logging:
   level:
     com.codesign.tutorial: DEBUG
+
+server.error.include-message: always
