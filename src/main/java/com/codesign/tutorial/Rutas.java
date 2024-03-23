@@ -69,4 +69,17 @@ public class Rutas {
     public int getCalculo(@PathVariable int numero){
         throw new NullPointerException("la clave del usuario es pasword123 y no deberia enviarse a postman");
     }
+
+    @GetMapping("/userData")
+    public ResponseEntity<String> getUserData(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .header("Content-Type","application/json")
+                .body("{\"name\": \"mary\"}");
+    }
+
+    @GetMapping("/userData/v2")
+    public Map<String, Map<String, Object>> getUserDataV2(){
+        return Map.of("user", Map.of("name","mary","age",25));
+    }
 }
