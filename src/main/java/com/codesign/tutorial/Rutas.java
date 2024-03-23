@@ -4,6 +4,7 @@ import com.codesign.tutorial.models.Libro;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -51,5 +52,21 @@ public class Rutas {
     @ResponseStatus(value = HttpStatus.MOVED_PERMANENTLY, reason = "Fue movida a la version 2 de la API")
     String miSegundaRutaconStatus(){
         return "Aprendiendo status http en Spring Boot";
+    }
+
+    @GetMapping("animales/{lugar}")
+    public ResponseEntity<String> getAnimales(@PathVariable String lugar){
+        if(lugar.equals("granja")){
+            return ResponseEntity.status(HttpStatus.OK).body("Caballo, vaca, oveja, gallina");
+        }else if(lugar.equals("selva")){
+            return ResponseEntity.status(HttpStatus.OK).body("mono, gorila, puma");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Lugar no valido");
+        }
+    }
+
+    @GetMapping("/calcular/{numero}")
+    public int getCalculo(@PathVariable int numero){
+        throw new NullPointerException("la clave del usuario es pasword123 y no deberia enviarse a postman");
     }
 }
