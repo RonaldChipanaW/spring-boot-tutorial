@@ -1,6 +1,7 @@
 package com.codesign.tutorial;
 
 import com.codesign.tutorial.models.Libro;
+import com.codesign.tutorial.models.UserData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -82,4 +83,10 @@ public class Rutas {
     public Map<String, Map<String, Object>> getUserDataV2(){
         return Map.of("user", Map.of("name","mary","age",25));
     }
+
+    @GetMapping("/userData/v3")
+    public UserData getUserDataV3(){
+        return  new UserData("Ronald",40);
+    }
+
 }
